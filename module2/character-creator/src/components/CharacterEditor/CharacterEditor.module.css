@@ -4,6 +4,7 @@
 }
 
 .maxWidthWrapper {
+  position: relative;
 }
 
 .header {
@@ -25,10 +26,11 @@
 }
 
 .characterWrapper {
-  width: 450px;
-  bottom: 0px;
-  right: 0px;
   position: fixed;
+  min-height: 500px;
+  left: 60%;
+  top: 15%;
+  bottom: 5%;
 }
 
 .characterPerspective {

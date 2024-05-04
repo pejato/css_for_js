@@ -1,5 +1,4 @@
 .footer {
-  position: relative;
   padding: 64px;
   background: hsl(0deg, 0%, 5%);
   color: white;
@@ -7,5 +6,5 @@
 }
 
 .footer a {
-  color: white;
+  color: inherit;
 }
