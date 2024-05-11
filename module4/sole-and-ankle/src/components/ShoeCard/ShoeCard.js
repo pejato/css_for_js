@@ -5,6 +5,32 @@ import { COLORS, WEIGHTS } from '../../constants';
 import { formatPrice, pluralize, isNewShoe } from '../../utils';
 import Spacer from '../Spacer';
 
+const Flag = ({variant}) => {
+  if (variant !== 'on-sale' && variant !== 'new-release') {
+    return null;
+  }
+  const color = variant === 'on-sale' ? COLORS.primary : COLORS.secondary;
+  const label = variant === 'on-sale' ? 'Sale' : 'Just Released!';
+  return (
+    <FlagWrapper style={{'--flag-color': color }}>
+      {label}
+    </FlagWrapper>
+  )
+}
+
+const FlagWrapper = styled.div`
+  background-color: var(--flag-color);
+  color: ${COLORS.white};
+  font-weight: 700;
+  font-size: ${14.0 / 16.0}rem;
+  padding: 7px 10px 9px 10px;
+  border-radius: 2px;
+  width: fit-content;
+  position: absolute;
+  right: -4px;
+  top: 12px;
+`
+
 const ShoeCard = ({
   slug,
   name,
@@ -45,6 +71,7 @@ const ShoeCard = ({
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
         </Row>
+        <Flag variant={variant} />
       </Wrapper>
     </Link>
   );
@@ -55,13 +82,18 @@ const Link = styled.a`
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+  position: relative;
+`;
 
 const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  width: 100%;
+  border-radius: 16px 16px 4px 4px;
+`;
 
 const Row = styled.div`
   font-size: 1rem;
