@@ -44,7 +44,7 @@ const Nav = styled.nav`
   align-items: baseline;
   gap: 48px;
   flex: 1;
-  margin: 24px 0;
+  margin: 24px 48px;
 `;
 
 const LogoWrapper = styled.div`
