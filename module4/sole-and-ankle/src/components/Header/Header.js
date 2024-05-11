@@ -23,6 +23,9 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
+        <LogoWrapper aria-hidden={true}>
+          <Logo />
+        </LogoWrapper>
       </MainHeader>
     </header>
   );
@@ -45,10 +48,10 @@ const Nav = styled.nav`
 `;
 
 const LogoWrapper = styled.div`
-  flex: 0 1;
-  position: relative;
-  left: 0px;
-  width: 0px;
+  flex: 0 0;
+  &:last-of-type {
+    visibility: hidden;
+  }
 `;
 
 const NavLink = styled.a`
