@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components/macro';
+import { COLORS } from '../../constants';
 
 const GlobalStyles = createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -66,14 +67,15 @@ table {
   isolation: isolate;
 }
 :root {
-  --color-white: 0deg 0% 100%;
-  --color-gray-100: 185deg 5% 95%;
-  --color-gray-300: 190deg 5% 80%;
-  --color-gray-500: 196deg 4% 60%;
-  --color-gray-700: 220deg 5% 40%;
-  --color-gray-900: 220deg 3% 20%;
-  --color-primary: 340deg 65% 47%;
-  --color-secondary: 240deg 60% 63%;
+  --color-white: hsl(${COLORS.white});
+  --color-gray-100: hsl(${COLORS.gray[100]});
+  --color-gray-300: hsl(${COLORS.gray[300]});
+  --color-gray-500: hsl(${COLORS.gray[500]});
+  --color-gray-700: hsl(${COLORS.gray[700]});
+  --color-gray-900: hsl(${COLORS.gray[900]});
+  --color-primary: hsl(${COLORS.primary});
+  --color-secondary: hsl(${COLORS.secondary});
+  --color-overlay: hsl(${COLORS.gray[700]} / 80%)
 }
 
 html {

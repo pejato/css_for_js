@@ -39,7 +39,7 @@ const Wrapper = styled.label`
 `;
 
 const VisibleLabel = styled.span`
-  color: hsl(var(--color-gray-700));
+  color: var(--color-gray-700);
   margin-right: 16px;
 `;
 
@@ -61,10 +61,10 @@ const NativeSelect = styled.select`
 
 const DisplayedBit = styled.span`
   display: block;
-  background: hsl(var(--color-gray-100));
+  background: var(--color-gray-100);
   font-size: 1rem;
   font-weight: ${WEIGHTS.medium};
-  color: hsl(var(--color-gray-900));
+  color: var(--color-gray-900);
   padding: 12px 42px 12px 16px;
   border-radius: 8px;
   pointer-events: none;

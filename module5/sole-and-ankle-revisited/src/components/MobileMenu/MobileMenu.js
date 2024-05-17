@@ -6,19 +6,21 @@ import { DialogOverlay, DialogContent } from '@reach/dialog';
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS } from '../../constants';
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
-  const menuLeftShift = 75;
   return (
     <Overlay 
       isOpen={isOpen}
       onDismiss={onDismiss}
     > 
-      <Content style={{"--menu-left-shift": menuLeftShift + "px"}}>
-        <ButtonWrapper style={{"--menu-left-shift": menuLeftShift + "px"}}>
+      <Content>
+        <ButtonWrapper>
           <UnstyledButton onClick={onDismiss}>
-            <Icon id="close" color={COLORS.gray[900]} strokeWidth={2} />
+            <Icon id="close" color="var(--color-gray-900)" strokeWidth={2} />
+            <VisuallyHidden>
+              Close
+            </VisuallyHidden>
           </UnstyledButton>
         </ButtonWrapper>
 
@@ -42,9 +44,12 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 };
 
 const ButtonWrapper = styled.div`
-  position: absolute;
-  top: 16px;
-  right: calc(var(--menu-left-shift) + 16px);
+  position: fixed;
+  top: 26px;
+  right: 16px;
+  padding: 16px;
+  margin-top: -16px;
+  margin-right: -16px;
 `
 
 const MenuLink = styled.a`
@@ -59,20 +64,20 @@ const Side = styled.div`
 `
 const Overlay = styled(DialogOverlay)`
   position: fixed;
-  background-color: hsl(var(--color-gray-700) / 80%);
+  background-color: var(--color-overlay);
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  display: flex;
+  justify-content: flex-end;
 `
 
 const Content = styled(DialogContent)`
   font-family: 'Raleway', sans-serif;
-  position: relative;
-  left: var(--menu-left-shift);
   background-color: white;
   height: 100%;
-  width: 100%;
+  width: 300px;
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -88,12 +93,12 @@ const NavWrapper = styled.nav`
   & > a {
     font-size: ${18 / 16}rem;
     font-weight: 600;
-    color: hsl(var(--color-gray-900));
+    color: var(--color-gray-900);
     text-transform: uppercase;
     line-height: 1.125rem;
   }
   & > a:first-of-type {
-    color: hsl(var(--color-secondary))
+    color: var(--color-secondary)
   }
 `
 
@@ -107,7 +112,7 @@ const FooterWrapper = styled.nav`
   gap: 14px;
   & > a {
     font-size: ${14 / 16}rem;
-    color: hsl(var(--color-gray-700));
+    color: var(--color-gray-700);
   }
 `
 
