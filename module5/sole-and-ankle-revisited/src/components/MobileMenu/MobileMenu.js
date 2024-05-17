@@ -61,6 +61,7 @@ const Side = styled.div`
 `
 const Overlay = styled(DialogOverlay)`
   position: fixed;
+  background-color: hsl(var(--color-gray-700) / 80%);
   top: 0;
   left: 0;
   right: 0;
@@ -89,11 +90,11 @@ const NavWrapper = styled.nav`
   & > a {
     font-size: ${18 / 16}rem;
     font-weight: 600;
-    color: ${COLORS.gray[900]};
+    color: hsl(var(--color-gray-900));
     text-transform: uppercase;
   }
   & > a:first-of-type {
-    color: ${COLORS.secondary}
+    color: hsl(var(--color-secondary))
   }
 `
 
@@ -106,7 +107,7 @@ const FooterWrapper = styled.nav`
   gap: 14px;
   & > a {
     font-size: ${14 / 16}rem;
-    color: ${COLORS.gray[700]};
+    color: hsl(var(--color-gray-700));
   }
 `
 
