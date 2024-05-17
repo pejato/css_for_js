@@ -31,13 +31,11 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
           <MenuLink href="/kids">Kids</MenuLink>
           <MenuLink href="/collections">Collections</MenuLink>
         </NavWrapper>
-        <Side>
           <FooterWrapper>
             <MenuLink href="/terms">Terms and Conditions</MenuLink>
             <MenuLink href="/privacy">Privacy Policy</MenuLink>
             <MenuLink href="/contact">Contact Us</MenuLink>
           </FooterWrapper>
-        </Side>
       </Content>
     </Overlay>
   );
@@ -86,12 +84,13 @@ const NavWrapper = styled.nav`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 22px;
+  gap: 16px;
   & > a {
     font-size: ${18 / 16}rem;
     font-weight: 600;
     color: hsl(var(--color-gray-900));
     text-transform: uppercase;
+    line-height: 1.125rem;
   }
   & > a:first-of-type {
     color: hsl(var(--color-secondary))
@@ -101,6 +100,7 @@ const NavWrapper = styled.nav`
 const FooterWrapper = styled.nav`
   height: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;

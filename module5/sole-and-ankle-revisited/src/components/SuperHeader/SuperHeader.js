@@ -30,15 +30,10 @@ const Wrapper = styled.div`
   color: hsl(var(--color-gray-300));
   background-color: hsl(var(--color-gray-900));
   height: 40px;
-  @media ${QUERIES.tabletAndDown} {
-    height: 4px;
-  }
   padding-left: 32px;
   padding-right: 32px;
   @media ${QUERIES.tabletAndDown} {
-    & > * {
-      display: none;
-    }
+    display: none;
   }
 `;
 
