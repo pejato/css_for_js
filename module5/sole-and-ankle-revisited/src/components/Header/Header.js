@@ -50,6 +50,7 @@ const Header = () => {
 const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
+  overflow: auto;
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
@@ -63,7 +64,12 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  white-space: nowrap;
+  gap: clamp(
+    1.5rem,
+    5.9vw - 2rem,
+    3rem
+  );
   margin: 0px 48px;
   @media ${QUERIES.tabletAndDown} {
     display: none;
