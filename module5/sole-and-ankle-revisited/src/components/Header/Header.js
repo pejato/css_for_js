@@ -11,11 +11,6 @@ import Icon from '../Icon';
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
-
   return (
     <header>
       <SuperHeader />
@@ -32,17 +27,18 @@ const Header = () => {
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <Side />
-        <UnstyledButton>
-          <Icon id="shopping-bag" strokeWidth={1}/>
-        </UnstyledButton>
-        <UnstyledButton>
-          <Icon id="search" strokeWidth={1}/>
-        </UnstyledButton>
-        <UnstyledButton onClick={() => setShowMobileMenu(!showMobileMenu) }>
-          <Icon id="menu" strokeWidth={1}/>
-        </UnstyledButton>
+        <MobileButtons>
+          <UnstyledButton>
+            <Icon id="shopping-bag" strokeWidth={1}/>
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id="search" strokeWidth={1}/>
+          </UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu(!showMobileMenu) }>
+            <Icon id="menu" strokeWidth={1}/>
+          </UnstyledButton>
+        </MobileButtons>
       </MainHeader>
-
       <MobileMenu
         isOpen={showMobileMenu}
         onDismiss={() => setShowMobileMenu(false)}
@@ -57,11 +53,11 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
-  @media ${QUERIES.phoneAndDown} {
-    gap: 1rem;
-  }
   @media ${QUERIES.tabletAndDown} {
     gap: 2rem;
+  }
+  @media ${QUERIES.phoneAndDown} {
+    gap: 1rem;
   }
 `;
 
@@ -89,5 +85,13 @@ const NavLink = styled.a`
     color: ${COLORS.secondary};
   }
 `;
+
+const MobileButtons = styled.div`
+  display: none;
+  @media ${QUERIES.tabletAndDown} {
+    display: flex;
+  } 
+  gap: inherit;
+`
 
 export default Header;

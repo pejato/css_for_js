@@ -6,30 +6,108 @@ import { DialogOverlay, DialogContent } from '@reach/dialog';
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
+import { COLORS, WEIGHTS } from '../../constants';
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
-  if (!isOpen) {
-    return null;
-  }
-
+  const menuLeftShift = 75;
   return (
-    <div>
-      <button onClick={onDismiss}>Dismiss menu</button>
-      <nav>
-        <a href="/sale">Sale</a>
-        <a href="/new">New&nbsp;Releases</a>
-        <a href="/men">Men</a>
-        <a href="/women">Women</a>
-        <a href="/kids">Kids</a>
-        <a href="/collections">Collections</a>
-      </nav>
-      <footer>
-        <a href="/terms">Terms and Conditions</a>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/contact">Contact Us</a>
-      </footer>
-    </div>
+    <Overlay 
+      isOpen={isOpen}
+      onDismiss={onDismiss}
+    > 
+      <Content style={{"--menu-left-shift": menuLeftShift + "px"}}>
+        <ButtonWrapper style={{"--menu-left-shift": menuLeftShift + "px"}}>
+          <UnstyledButton onClick={onDismiss}>
+            <Icon id="close" color={COLORS.gray[900]} strokeWidth={2} />
+          </UnstyledButton>
+        </ButtonWrapper>
+
+        <Side/>
+        <NavWrapper>
+          <MenuLink href="/sale">Sale</MenuLink>
+          <MenuLink href="/new">New&nbsp;Releases</MenuLink>
+          <MenuLink href="/men">Men</MenuLink>
+          <MenuLink href="/women">Women</MenuLink>
+          <MenuLink href="/kids">Kids</MenuLink>
+          <MenuLink href="/collections">Collections</MenuLink>
+        </NavWrapper>
+        <Side>
+          <FooterWrapper>
+            <MenuLink href="/terms">Terms and Conditions</MenuLink>
+            <MenuLink href="/privacy">Privacy Policy</MenuLink>
+            <MenuLink href="/contact">Contact Us</MenuLink>
+          </FooterWrapper>
+        </Side>
+      </Content>
+    </Overlay>
   );
 };
+
+const ButtonWrapper = styled.div`
+  position: absolute;
+  top: 16px;
+  right: calc(var(--menu-left-shift) + 16px);
+`
+
+const MenuLink = styled.a`
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+const Side = styled.div`
+  flex: 1;
+`
+const Overlay = styled(DialogOverlay)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`
+
+const Content = styled(DialogContent)`
+  font-family: 'Raleway', sans-serif;
+  position: relative;
+  left: var(--menu-left-shift);
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
+const NavWrapper = styled.nav`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 22px;
+  & > a {
+    font-size: ${18 / 16}rem;
+    font-weight: 600;
+    color: ${COLORS.gray[900]};
+    text-transform: uppercase;
+  }
+  & > a:first-of-type {
+    color: ${COLORS.secondary}
+  }
+`
+
+const FooterWrapper = styled.nav`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 14px;
+  & > a {
+    font-size: ${14 / 16}rem;
+    color: ${COLORS.gray[700]};
+  }
+`
 
 export default MobileMenu;
