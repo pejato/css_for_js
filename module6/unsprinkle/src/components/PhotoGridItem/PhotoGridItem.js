@@ -20,7 +20,7 @@ const PhotoGridItem = ({ id, src, alt, tags }) => {
             ${withSuffix(src, "@2x.jpg")} 2x, 
             ${withSuffix(src, "@3x.jpg")} 3x`}
           />
-          <Image src={src} />
+          <Image src={src} alt={alt}/>
         </picture>
       </Anchor>
       <Tags>
