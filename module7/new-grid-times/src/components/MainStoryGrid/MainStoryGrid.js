@@ -12,6 +12,7 @@ import MainStory from '../MainStory';
 import SecondaryStory from '../SecondaryStory';
 import OpinionStory from '../OpinionStory';
 import Advertisement from '../Advertisement';
+import { COLORS } from '../../constants';
 
 const MainStoryGrid = () => {
   return (
@@ -23,7 +24,9 @@ const MainStoryGrid = () => {
       <SecondaryStorySection>
         <StoryList>
           {SECONDARY_STORIES.map((story, index) => (
-            <SecondaryStory key={story.id} {...story} />
+            <StoryWrapper key={story.id}>
+              <SecondaryStory {...story} />
+            </StoryWrapper>
           ))}
         </StoryList>
       </SecondaryStorySection>
@@ -32,7 +35,9 @@ const MainStoryGrid = () => {
         <SectionTitle>Opinion</SectionTitle>
         <StoryList>
           {OPINION_STORIES.map((story, index) => (
-            <OpinionStory key={story.id} {...story} />
+            <StoryWrapper key={story.id}>
+              <OpinionStory {...story} />
+            </StoryWrapper>
           ))}
         </StoryList>
       </OpinionSection>
@@ -67,6 +72,14 @@ const StoryList = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+const StoryWrapper = styled.div`
+  padding-bottom: 14px;
+  &:not(:first-of-type) {
+    border-top: 1px solid ${COLORS.gray[300]};
+    padding-top: 16px;
+  }
+`
 
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
