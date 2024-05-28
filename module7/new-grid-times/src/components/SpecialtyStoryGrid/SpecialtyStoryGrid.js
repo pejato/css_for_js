@@ -55,10 +55,12 @@ const Wrapper = styled.div`
 const MarketsSection = styled.section``;
 
 const MarketCards = styled.div`
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 175px), 1fr));
+
   @media ${QUERIES.tabletOnly} {
     padding-top: 8px;
-    display: grid;
-    gap: 16px;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   }
 `;
@@ -66,6 +68,10 @@ const MarketCards = styled.div`
 const SportsSection = styled.section``;
 
 const SportsStories = styled.div`
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 175px), 1fr));
+  
   @media ${QUERIES.tabletOnly} {
     display: flex;
     overflow: auto;
