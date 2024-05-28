@@ -200,12 +200,19 @@ const SubfooterWrapper = styled.div`
   padding: 8px 0px;
   /* Optical alignment */
   padding-bottom: 16px;
+  @media ${QUERIES.laptopAndUp} {
+    padding-left: 88px;
+    padding-right: 88px;
+  }
 `;
 
 const Subfooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media ${QUERIES.laptopAndUp} {
+    align-items: flex-start;
+  }
 `;
 
 const Logo = styled.a`
