@@ -6,6 +6,7 @@ import { MARKET_DATA, SPORTS_STORIES } from '../../data';
 import MarketCard from '../MarketCard';
 import SectionTitle from '../SectionTitle';
 import MiniStory from '../MiniStory';
+import { QUERIES } from '../../constants';
 
 const SpecialtyStoryGrid = () => {
   return (
@@ -36,7 +37,9 @@ const SpecialtyStoryGrid = () => {
         </SectionTitle>
         <SportsStories>
           {SPORTS_STORIES.map((data) => (
-            <MiniStory key={data.id} {...data} />
+            <SportStoryWrapper key={data.id}>
+              <MiniStory {...data} />
+            </SportStoryWrapper>
           ))}
         </SportsStories>
       </SportsSection>
@@ -51,10 +54,29 @@ const Wrapper = styled.div`
 
 const MarketsSection = styled.section``;
 
-const MarketCards = styled.div``;
+const MarketCards = styled.div`
+  @media ${QUERIES.tabletOnly} {
+    padding-top: 8px;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  }
+`;
 
 const SportsSection = styled.section``;
 
-const SportsStories = styled.div``;
+const SportsStories = styled.div`
+  @media ${QUERIES.tabletOnly} {
+    display: flex;
+    overflow: auto;
+    gap: 16px;
+  }
+`;
+
+const SportStoryWrapper = styled.div`
+  @media ${QUERIES.tabletOnly} {
+    flex: 1 0 220px;
+  }
+`
 
 export default SpecialtyStoryGrid;
