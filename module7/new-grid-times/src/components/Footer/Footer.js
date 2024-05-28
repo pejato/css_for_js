@@ -180,6 +180,17 @@ const MainNavArea = styled.div`
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
+
+  @media ${QUERIES.tabletAndUp} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: start;
+    & > nav {
+      flex: 1 1 220px;
+    }
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); */
+  }
 `;
 
 const MainNavHeading = styled.h2`
@@ -193,6 +204,9 @@ const MainNavList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 4px;
+  @media ${QUERIES.tabletAndUp} {
+    align-items: flex-start;
+  }
 `;
 
 const SubfooterWrapper = styled.div`
