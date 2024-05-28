@@ -139,6 +139,7 @@ const AdvertisementSection = styled.section`
   @media ${QUERIES.laptopAndUp} {
     border-top: 1px solid ${COLORS.gray[300]};
     padding-top: 16px;
+    padding-bottom: 6px;
   }
 `;
 
