@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { Menu, Search, User } from 'react-feather';
 
-import { QUERIES } from '../../constants';
+import { COLORS, QUERIES } from '../../constants';
 
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import Logo from '../Logo';
@@ -48,6 +48,7 @@ const Header = () => {
         <Logo />
         <DesktopSubscribeButton>
           <SubscribeButton />
+          <a href="/">Already a subscriber?</a>
         </DesktopSubscribeButton>
       </MainHeader>
     </header>
@@ -65,6 +66,18 @@ const DesktopSubscribeButton = styled.div`
   display: none;
   @media ${QUERIES.laptopAndUp} {
     display: revert;
+    position: relative;
+    justify-self: end;
+    & > a {
+      width: 100%;
+      text-align: center;
+      font-size: 0.875rem;
+      font-style: italic;
+      margin-top: 8px;
+      text-decoration: underline;
+      position: absolute;
+      color: ${COLORS.gray[900]}
+    }
   } 
 `
 
@@ -101,8 +114,20 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
+
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 48px;
+    margin-bottom: 72px;
+  }
+
   @media ${QUERIES.laptopAndUp} {
-    justify-content: space-between;
+    justify-content: revert;
+    justify-items: start;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    margin-top: 16px;
+    margin-bottom: 72px;
   }
 `;
 
